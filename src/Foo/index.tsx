@@ -1,5 +1,15 @@
-import React, { type FC } from 'react';
+import React, { type FC, type CSSProperties } from 'react';
 
-const Foo: FC<{ title: string }> = (props) => <h4>{props.title}</h4>;
+interface FooProps {
+  title: string;
+  className?: string;
+  style?: CSSProperties;
+}
+
+const Foo: FC<FooProps> = ({ title, className, style }) => (
+  <h4 className={className} style={style}>
+    {title}
+  </h4>
+);
 
 export default Foo;
