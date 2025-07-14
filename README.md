@@ -41,3 +41,4 @@ $ pnpm run doctor
 ## LICENSE
 
 MIT
+# zhiman-design
