@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 基础颜色系统 */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* 青绿色主题 (保持原有) */
+    --primary: 162 43% 40%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* 扩展的青绿色色板 */
+    --primary-50: 162 43% 97%;
+    --primary-100: 162 43% 89%;
+    --primary-200: 162 43% 79%;
+    --primary-300: 162 43% 65%;
+    --primary-400: 162 43% 50%;
+    --primary-500: 162 43% 40%;
+    --primary-600: 162 43% 30%;
+    --primary-700: 162 43% 25%;
+    --primary-800: 162 43% 20%;
+    --primary-900: 162 43% 17%;
+    --primary-950: 162 43% 10%;
+    
+    /* Surface 颜色系统 */
+    --surface-50: 0 0% 98%;
+    --surface-100: 0 0% 96%;
+    --surface-200: 0 0% 90%;
+    --surface-300: 0 0% 83%;
+    --surface-400: 0 0% 64%;
+    --surface-500: 0 0% 45%;
+    --surface-600: 0 0% 32%;
+    --surface-700: 0 0% 25%;
+    --surface-800: 0 0% 15%;
+    --surface-900: 0 0% 9%;
+    --surface-950: 0 0% 4%;
+    
+    /* 语义颜色 */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 355.7 100% 97.3%;
+    --warning: 32 95% 44%;
+    --warning-foreground: 210 40% 98%;
+    --info: 221.2 83.2% 53.3%;
+    --info-foreground: 210 40% 98%;
+    
+    /* 边框和输入 */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 162 43% 40%;
+    
+    /* 图表颜色 */
+    --chart-1: 162 43% 40%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    
+    /* 边框半径 */
+    --radius: 0.5rem;
+    --radius-sm: 0.125rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.875rem;
+    
+    /* 侧边栏颜色 */
+    --sidebar: var(--surface-100);
+    --sidebar-foreground: var(--surface-950);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: var(--surface-200);
+    --sidebar-ring: var(--primary);
+  }
+ 
+  [data-prefers-color="dark"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* 暗色模式下的青绿色 */
+    --primary: 162 43% 50%;
+    --primary-foreground: 222.2 84% 4.9%;
+    
+    /* 语义颜色 - 暗色模式 */
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 355.7 100% 97.3%;
+    --warning: 32 95% 44%;
+    --warning-foreground: 210 40% 98%;
+    --info: 217.2 91.2% 59.8%;
+    --info-foreground: 222.2 84% 4.9%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 162 43% 50%;
+    
+    /* 图表颜色 - 暗色模式 */
+    --chart-1: 162 43% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    /* 侧边栏颜色 - 暗色模式 */
+    --sidebar: var(--surface-900);
+    --sidebar-foreground: var(--surface-50);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: var(--surface-800);
+    --sidebar-ring: var(--primary);
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold tracking-tight sm:text-2xl;
+  }
+  
+  h4 {
+    @apply text-lg font-semibold tracking-tight sm:text-xl;
+  }
+  
+  h5 {
+    @apply text-base font-semibold tracking-tight sm:text-lg;
+  }
+  
+  h6 {
+    @apply text-sm font-semibold tracking-tight sm:text-base;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+  
+  small {
+    @apply text-xs leading-relaxed sm:text-sm;
+  }
+}
+
+@layer components {
+  /* 自定义滚动条 */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 9999px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 9999px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--border) / 0.8);
+  }
+
+  /* 骨架屏动画 */
+  .skeleton {
+    @apply relative overflow-hidden rounded-md bg-muted;
+  }
+
+  .skeleton::after {
+    @apply absolute inset-0;
+    animation: shimmer 2s infinite;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
+    content: "";
+    transform: translateX(-100%);
+  }
+
+  .dark .skeleton::after {
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* 手风琴动画 */
+  .accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+  
+  .accordion-up {
+    animation: accordion-up 0.2s ease-out;
+  }
+  
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  
+  /* 闪光文字效果 */
+  .shiny-text {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      currentColor 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shiny-text 2s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  @keyframes shiny-text {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+/* Markdown 样式 */
+@layer components {
+  .markdown {
+    @apply prose prose-gray max-w-none dark:prose-invert;
+  }
+  
+  .markdown h1 {
+    @apply mt-6 mb-4 text-2xl font-bold text-foreground;
+  }
+  
+  .markdown h2 {
+    @apply mt-6 mb-3 text-xl font-semibold text-foreground;
+  }
+  
+  .markdown h3 {
+    @apply mt-4 mb-3 text-lg font-semibold text-foreground;
+  }
+  
+  .markdown h4 {
+    @apply mt-4 mb-2 text-base font-semibold text-foreground;
+  }
+  
+  .markdown h5 {
+    @apply mt-3 mb-2 text-sm font-semibold text-foreground;
+  }
+  
+  .markdown h6 {
+    @apply mt-3 mb-2 text-sm font-semibold text-foreground;
+  }
+
+  .markdown p {
+    @apply my-3 text-base leading-loose text-muted-foreground;
+  }
+
+  .markdown strong {
+    @apply font-semibold text-foreground;
+  }
+  
+  .markdown em {
+    @apply italic;
+  }
+
+  .markdown ul {
+    @apply my-4 list-none space-y-2 pl-6;
+  }
+  
+  .markdown ul li {
+    @apply relative text-muted-foreground;
+  }
+  
+  .markdown ul li::before {
+    @apply absolute -left-4 text-primary;
+    content: "•";
+  }
+  
+  .markdown ol {
+    @apply my-4 list-decimal space-y-2 pl-6;
+  }
+  
+  .markdown ol li {
+    @apply text-muted-foreground;
+  }
+  
+  .markdown ol li::marker {
+    @apply text-primary font-medium;
+  }
+
+  .markdown pre {
+    @apply my-6 overflow-x-auto rounded-lg bg-muted p-4;
+  }
+  
+  .markdown code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-sm;
+  }
+  
+  .markdown pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .markdown table {
+    @apply my-6 w-full overflow-hidden rounded-lg border border-border;
+  }
+  
+  .markdown th {
+    @apply border-b border-border bg-muted/50 px-4 py-2 text-left font-medium;
+  }
+  
+  .markdown td {
+    @apply border-b border-border px-4 py-2;
+  }
+
+  .markdown blockquote {
+    @apply my-4 border-l-4 border-primary bg-muted/30 pl-4 py-2 italic;
+  }
+
+  .markdown hr {
+    @apply my-8 border-border;
+  }
+  
+  .markdown a {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+}
