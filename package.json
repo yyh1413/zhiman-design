@@ -1,13 +1,14 @@
 {
   "name": "zhiman-design",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "zhiman-design",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
-    "build": "father build",
+    "build": "father build && npm run build:styles",
+    "build:styles": "tailwindcss -i ./tailwind.css -o ./dist/styles.css --minify",
     "build:watch": "father dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",

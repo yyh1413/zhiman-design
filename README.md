@@ -1,107 +1,94 @@
-# zhiman-design
+# Zhiman Design
 
-[![NPM version](https://img.shields.io/npm/v/zhiman-design.svg?style=flat)](https://npmjs.org/package/zhiman-design)
-[![NPM downloads](http://img.shields.io/npm/dm/zhiman-design.svg?style=flat)](https://npmjs.org/package/zhiman-design)
-[![Build Status](https://img.shields.io/github/workflow/status/zhiman/zhiman-design/CI)](https://github.com/zhiman/zhiman-design/actions)
-[![codecov](https://codecov.io/gh/zhiman/zhiman-design/branch/main/graph/badge.svg)](https://codecov.io/gh/zhiman/zhiman-design)
+一个现代化的 React 组件库，基于 Tailwind CSS 构建。
 
-🚀 企业级 React 组件库，为开发者提供高质量的组件和最佳实践
-
-[English](./README.en.md) | 简体中文
-
-## ✨ 特性
-
-- 🌈 提炼自企业级中后台产品的交互语言和视觉风格
-- 📦 开箱即用的高质量 React 组件
-- 🛡 使用 TypeScript 开发，提供完整的类型定义文件  
-- ⚡️ 支持按需加载，减小打包体积
-- 🎨 深入每个细节的主题定制能力
-- 🌍 国际化语言支持
-- 📱 响应式设计，支持移动端
-- 🎪 现代化的开发和构建工具链
-
-## 📦 安装
+## 安装
 
 ```bash
-# npm
 npm install zhiman-design
-
-# yarn
+# 或
 yarn add zhiman-design
-
-# pnpm
+# 或
 pnpm add zhiman-design
 ```
 
-## 🔨 使用
+## 使用
 
-```jsx
+### 1. 引入样式文件
+
+**重要：** 在使用组件之前，必须先引入样式文件！
+
+```tsx
+// 在你的应用入口文件（如 App.tsx 或 main.tsx）中引入
+import 'zhiman-design/dist/styles.css';
+// 或者如果你使用 Tailwind CSS，可以引入原始文件
+import 'zhiman-design/tailwind.css';
+```
+
+### 2. 使用组件
+
+```tsx
 import React from 'react';
-import { Button, DatePicker } from 'zhiman-design';
+import { Button, ThemeSwitcher } from 'zhiman-design';
 
-const App = () => (
-  <div>
-    <Button type="primary">Primary Button</Button>
-    <DatePicker placeholder="选择日期" />
-  </div>
-);
+function App() {
+  return (
+    <div>
+      <ThemeSwitcher />
+      <Button variant="default">Hello Zhiman Design!</Button>
+      <Button variant="destructive">危险按钮</Button>
+      <Button variant="outline">边框按钮</Button>
+    </div>
+  );
+}
 
 export default App;
 ```
 
-### 按需引入
+### 3. 配置 Tailwind CSS（推荐）
 
-`zhiman-design` 默认支持基于 ES modules 的 tree shaking，对于 js 部分，直接引入 `import { Button } from 'zhiman-design'` 就会有按需加载的效果。
+如果你在消费项目中使用 Tailwind CSS，建议将组件库的配置合并到你的 `tailwind.config.js` 中：
 
-## 🌍 国际化
-
-`zhiman-design` 提供了数十种语言的国际化支持。详见[国际化文档](https://zhiman-design.github.io/docs/react/i18n)。
-
-## 🔗 链接
-
-- [官方文档](https://zhiman-design.github.io/)
-- [更新日志](./CHANGELOG.md)
-- [React 组件](https://zhiman-design.github.io/components/overview/)
-- [设计规范](https://zhiman-design.github.io/docs/spec/introduce/)
-
-## ⌨️ 本地开发
-
-克隆到本地开发:
-
-```bash
-$ git clone git@github.com:zhiman/zhiman-design.git
-$ cd zhiman-design
-$ pnpm install
-$ pnpm start
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/zhiman-design/dist/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {
+      // 可以覆盖组件库的主题配置
+    }
+  },
+  plugins: []
+};
 ```
 
-打开浏览器访问 http://localhost:8000
+## 样式问题排查
 
-我们欢迎所有的贡献，请先阅读 [贡献指南](https://github.com/zhiman/zhiman-design/blob/main/.github/CONTRIBUTING.md)。
+如果组件样式不生效，请检查：
 
-如果你希望参与贡献，请查看 [开发指南](https://github.com/zhiman/zhiman-design/wiki/Development) 并关注 [项目看板](https://github.com/zhiman/zhiman-design/projects)。
+1. **是否引入了样式文件**：确保在应用入口引入了 `dist/styles.css`
+2. **Tailwind CSS 配置**：确保你的 `tailwind.config.js` 包含了组件库的文件路径
+3. **CSS 优先级**：检查是否有其他样式覆盖了组件样式
 
-> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html)，更好的问题更容易获得帮助。
+## 开发
 
-## 🤝 参与贡献
+```bash
+# 安装依赖
+pnpm install
 
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建:
+# 开发模式
+pnpm dev
 
-- 通过 [Issue](https://github.com/zhiman/zhiman-design/issues) 报告 bug 或进行咨询
-- 提交 [Pull Request](https://github.com/zhiman/zhiman-design/pulls) 改进代码
-- 完善我们的[文档](https://github.com/zhiman/zhiman-design/tree/main/docs)
-- 参与我们的[讨论](https://github.com/zhiman/zhiman-design/discussions)
+# 构建
+pnpm build
 
-## 📄 License
+# 构建文档
+pnpm docs:build
+```
+
+## 许可证
 
 MIT
-
-## 🙋‍♂️ 社区互助
-
-如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
-
-通过 GitHub Discussions 提问时，建议使用 `Q&A` 标签。
-
-1. [GitHub Discussions](https://github.com/zhiman/zhiman-design/discussions)
-2. [GitHub Issues](https://github.com/zhiman/zhiman-design/issues)（报告 bug）
-3. [Discussions 历史讨论](https://github.com/zhiman/zhiman-design/discussions)（查看历史讨论）
