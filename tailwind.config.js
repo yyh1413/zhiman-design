@@ -4,8 +4,8 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,md,mdx}",
     "./docs/**/*.{js,ts,jsx,tsx,md,mdx}",
   ],
-  // darkMode: ["selector", '[data-prefers-color="dark"]'],
-  darkMode:'class',
+  darkMode: ["selector", '[data-prefers-color="dark"]'],
+  // darkMode:'class',
   theme: {
     extend: {
       colors: {
