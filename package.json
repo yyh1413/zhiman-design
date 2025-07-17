@@ -1,6 +1,6 @@
 {
   "name": "zhiman-design",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "zhiman-design",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,8 @@
     "start": "npm run dev",
     "dev": "dumi dev",
     "build": "father build && npm run build:styles",
-    "build:styles": "tailwindcss -i ./tailwind.css -o ./dist/styles.css --minify",
+    "build:styles": "tailwindcss -i ./tailwind.css -o ./dist/styles.css && npm run wrap-css",
+    "wrap-css": "node scripts/wrap-css.js",
     "build:watch": "father dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",

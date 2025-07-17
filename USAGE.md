@@ -53,6 +53,55 @@ module.exports = {
 };
 ```
 
+## CSS 变量冲突解决方案
+
+### 问题说明
+
+组件库使用带命名空间前缀的 CSS 变量（如 `--zhiman-primary`、`--zhiman-background`），避免与消费项目的 CSS 变量冲突。
+
+### 变量映射
+
+| 组件库变量 | 消费项目变量 | 说明 |
+|-----------|-------------|------|
+| `--zhiman-primary` | `--primary` | 主色调 |
+| `--zhiman-background` | `--background` | 背景色 |
+| `--zhiman-foreground` | `--foreground` | 前景色 |
+| `--zhiman-border` | `--border` | 边框色 |
+| `--zhiman-destructive` | `--destructive` | 危险色 |
+
+### 自定义主题
+
+如果你想自定义组件库的主题，可以通过覆盖 CSS 变量：
+
+```css
+/* 在你的全局 CSS 文件中 */
+:root {
+  /* 自定义组件库主题 */
+  --zhiman-primary: 220 14% 96%;
+  --zhiman-primary-foreground: 220 9% 46%;
+  --zhiman-background: 0 0% 100%;
+  --zhiman-foreground: 222.2 84% 4.9%;
+}
+```
+
+### 与消费项目主题共存
+
+组件库的变量不会影响消费项目的主题：
+
+```css
+/* 组件库变量（带前缀） */
+:root {
+  --zhiman-primary: 162 43% 40%;
+  --zhiman-background: 0 0% 100%;
+}
+
+/* 消费项目变量（无前缀） */
+:root {
+  --primary: 220 14% 96%;
+  --background: 240 10% 3.9%;
+}
+```
+
 ## 样式问题排查
 
 如果组件样式仍然不生效，请检查：
@@ -110,7 +159,7 @@ module.exports = {
 ```css
 /* 如果有其他样式覆盖，可以增加优先级 */
 .zhiman-button {
-  background-color: hsl(var(--primary)) !important;
+  background-color: hsl(var(--zhiman-primary)) !important;
 }
 ```
 
@@ -120,8 +169,8 @@ module.exports = {
 
 ```css
 :root {
-  --primary: 162 43% 40%;
-  --primary-foreground: 210 40% 98%;
+  --zhiman-primary: 162 43% 40%;
+  --zhiman-primary-foreground: 210 40% 98%;
   /* 其他变量... */
 }
 ```
@@ -143,7 +192,10 @@ module.exports = {
 在开发者工具的控制台中检查 CSS 变量：
 
 ```js
-// 检查 CSS 变量是否正确设置
+// 检查组件库的 CSS 变量是否正确设置
+getComputedStyle(document.documentElement).getPropertyValue('--zhiman-primary');
+
+// 检查消费项目的 CSS 变量
 getComputedStyle(document.documentElement).getPropertyValue('--primary');
 ```
 
@@ -172,14 +224,18 @@ A: 可以！你可以通过修改 CSS 变量来自定义主题：
 
 ```css
 :root {
-  --primary: 220 14% 96%; /* 自定义主色调 */
-  --primary-foreground: 220 9% 46%;
+  --zhiman-primary: 220 14% 96%; /* 自定义主色调 */
+  --zhiman-primary-foreground: 220 9% 46%;
 }
 ```
 
 ### Q: 支持暗色模式吗？
 
 A: 支持！组件库内置了暗色模式支持，会自动根据系统设置切换。
+
+### Q: CSS 变量会与我的项目冲突吗？
+
+A: 不会！组件库使用带 `zhiman-` 前缀的 CSS 变量，不会与消费项目的变量冲突。
 
 ## 技术支持
 
