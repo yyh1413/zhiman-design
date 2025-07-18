@@ -1,7 +1,5 @@
 // 组件导出
 export { Button, buttonVariants } from './Button';
-export type { ButtonProps } from './Button';
-export { ExampleContainer } from './ExampleContainer';
 export { Icons } from './Icons';
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './Tooltip';
 
