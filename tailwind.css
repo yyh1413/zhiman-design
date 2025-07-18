@@ -4,30 +4,9 @@
 
 @layer base {
   :root {
-    /* 基础颜色系统 - 添加 zhiman- 前缀 */
+    /* 基础颜色系统 */
     --zhiman-background: 0 0% 100%;
     --zhiman-foreground: 222.2 84% 4.9%;
-    --zhiman-card: 0 0% 100%;
-    --zhiman-card-foreground: 222.2 84% 4.9%;
-    --zhiman-popover: 0 0% 100%;
-    --zhiman-popover-foreground: 222.2 84% 4.9%;
-
-    /* 青绿色主题 (保持原有) */
-    --zhiman-primary: 162 43% 40%;
-    --zhiman-primary-foreground: 210 40% 98%;
-
-    /* 扩展的青绿色色板 */
-    --zhiman-primary-50: 162 43% 97%;
-    --zhiman-primary-100: 162 43% 89%;
-    --zhiman-primary-200: 162 43% 79%;
-    --zhiman-primary-300: 162 43% 65%;
-    --zhiman-primary-400: 162 43% 50%;
-    --zhiman-primary-500: 162 43% 40%;
-    --zhiman-primary-600: 162 43% 30%;
-    --zhiman-primary-700: 162 43% 25%;
-    --zhiman-primary-800: 162 43% 20%;
-    --zhiman-primary-900: 162 43% 17%;
-    --zhiman-primary-950: 162 43% 10%;
 
     /* Surface 颜色系统 */
     --zhiman-surface-50: 0 0% 98%;
@@ -42,92 +21,216 @@
     --zhiman-surface-900: 0 0% 9%;
     --zhiman-surface-950: 0 0% 4%;
 
+    /* 青绿色主题 */
+    --zhiman-primary-50: 162 43% 97%;
+    --zhiman-primary-100: 162 43% 89%;
+    --zhiman-primary-200: 162 43% 79%;
+    --zhiman-primary-300: 162 43% 65%;
+    --zhiman-primary-400: 162 43% 50%;
+    --zhiman-primary-500: 162 43% 40%;
+    --zhiman-primary-600: 162 43% 30%;
+    --zhiman-primary-700: 162 43% 25%;
+    --zhiman-primary-800: 162 43% 20%;
+    --zhiman-primary-900: 162 43% 17%;
+    --zhiman-primary-950: 162 43% 10%;
+
+    /* 红色系统 */
+    --zhiman-red-50: 0 85% 97%;
+    --zhiman-red-100: 0 93% 94%;
+    --zhiman-red-200: 0 96% 89%;
+    --zhiman-red-300: 0 94% 82%;
+    --zhiman-red-400: 0 91% 71%;
+    --zhiman-red-500: 0 84% 60%;
+    --zhiman-red-600: 0 72% 51%;
+    --zhiman-red-700: 0 74% 42%;
+    --zhiman-red-800: 0 70% 35%;
+    --zhiman-red-900: 0 63% 31%;
+    --zhiman-red-950: 0 48% 19%;
+
+    /* 绿色系统 */
+    --zhiman-green-50: 138 76% 97%;
+    --zhiman-green-100: 141 84% 93%;
+    --zhiman-green-200: 141 79% 85%;
+    --zhiman-green-300: 142 77% 73%;
+    --zhiman-green-400: 142 69% 58%;
+    --zhiman-green-500: 142 76% 36%;
+    --zhiman-green-600: 142 72% 29%;
+    --zhiman-green-700: 142 69% 24%;
+    --zhiman-green-800: 143 64% 24%;
+    --zhiman-green-900: 144 61% 20%;
+    --zhiman-green-950: 145 80% 8%;
+
+    /* 蓝色系统 */
+    --zhiman-blue-50: 213 100% 96%;
+    --zhiman-blue-100: 214 95% 93%;
+    --zhiman-blue-200: 213 97% 87%;
+    --zhiman-blue-300: 212 94% 82%;
+    --zhiman-blue-400: 213 94% 68%;
+    --zhiman-blue-500: 217 91% 60%;
+    --zhiman-blue-600: 221 83% 53%;
+    --zhiman-blue-700: 217 91% 60%;
+    --zhiman-blue-800: 215 70% 40%;
+    --zhiman-blue-900: 221 83% 53%;
+    --zhiman-blue-950: 229 84% 5%;
+
+    /* 黄色系统 */
+    --zhiman-yellow-50: 48 96% 89%;
+    --zhiman-yellow-100: 48 96% 89%;
+    --zhiman-yellow-200: 48 95% 78%;
+    --zhiman-yellow-300: 48 93% 67%;
+    --zhiman-yellow-400: 48 92% 53%;
+    --zhiman-yellow-500: 45 93% 47%;
+    --zhiman-yellow-600: 32 95% 44%;
+    --zhiman-yellow-700: 28 92% 50%;
+    --zhiman-yellow-800: 25 95% 53%;
+    --zhiman-yellow-900: 23 95% 24%;
+    --zhiman-yellow-950: 33 100% 7%;
+
+    /* 紫色系统 */
+    --zhiman-purple-50: 250 245% 255%;
+    --zhiman-purple-100: 243 240% 248%;
+    --zhiman-purple-200: 233 213% 231%;
+    --zhiman-purple-300: 216 194% 213%;
+    --zhiman-purple-400: 196 181% 189%;
+    --zhiman-purple-500: 168 167% 165%;
+    --zhiman-purple-600: 162 163% 74%;
+    --zhiman-purple-700: 168 167% 165%;
+    --zhiman-purple-800: 162 163% 74%;
+    --zhiman-purple-900: 168 167% 165%;
+    --zhiman-purple-950: 162 163% 74%;
+
+    /* 粉色系统 */
+    --zhiman-pink-50: 253 242% 248%;
+    --zhiman-pink-100: 252 231% 243%;
+    --zhiman-pink-200: 251 207% 232%;
+    --zhiman-pink-300: 249 168% 212%;
+    --zhiman-pink-400: 244 114% 182%;
+    --zhiman-pink-500: 236 72% 153%;
+    --zhiman-pink-600: 219 70% 126%;
+    --zhiman-pink-700: 219 70% 126%;
+    --zhiman-pink-800: 219 70% 126%;
+    --zhiman-pink-900: 219 70% 126%;
+    --zhiman-pink-950: 219 70% 126%;
+
+    /* 橙色系统 */
+    --zhiman-orange-50: 33 100% 96%;
+    --zhiman-orange-100: 31 100% 92%;
+    --zhiman-orange-200: 33 100% 83%;
+    --zhiman-orange-300: 33 100% 69%;
+    --zhiman-orange-400: 33 100% 55%;
+    --zhiman-orange-500: 25 95% 53%;
+    --zhiman-orange-600: 21 90% 48%;
+    --zhiman-orange-700: 21 90% 48%;
+    --zhiman-orange-800: 21 90% 48%;
+    --zhiman-orange-900: 21 90% 48%;
+    --zhiman-orange-950: 21 90% 48%;
+
+    /* 灰色系统 */
+    --zhiman-gray-50: 0 0% 98%;
+    --zhiman-gray-100: 0 0% 96%;
+    --zhiman-gray-200: 0 0% 90%;
+    --zhiman-gray-300: 0 0% 83%;
+    --zhiman-gray-400: 0 0% 64%;
+    --zhiman-gray-500: 0 0% 45%;
+    --zhiman-gray-600: 0 0% 32%;
+    --zhiman-gray-700: 0 0% 25%;
+    --zhiman-gray-800: 0 0% 15%;
+    --zhiman-gray-900: 0 0% 9%;
+    --zhiman-gray-950: 0 0% 4%;
+
     /* 语义颜色 */
-    --zhiman-secondary: 210 40% 96%;
-    --zhiman-secondary-foreground: 222.2 84% 4.9%;
-    --zhiman-muted: 210 40% 96%;
-    --zhiman-muted-foreground: 215.4 16.3% 46.9%;
-    --zhiman-accent: 210 40% 96%;
-    --zhiman-accent-foreground: 222.2 84% 4.9%;
-    --zhiman-destructive: 0 84.2% 60.2%;
-    --zhiman-destructive-foreground: 210 40% 98%;
-    --zhiman-success: 142 76% 36%;
-    --zhiman-success-foreground: 355.7 100% 97.3%;
-    --zhiman-warning: 32 95% 44%;
-    --zhiman-warning-foreground: 210 40% 98%;
-    --zhiman-info: 221.2 83.2% 53.3%;
-    --zhiman-info-foreground: 210 40% 98%;
+    --zhiman-primary: var(--zhiman-primary-500);
+    --zhiman-primary-foreground: var(--zhiman-surface-50);
+    --zhiman-secondary: var(--zhiman-surface-200);
+    --zhiman-secondary-foreground: var(--zhiman-surface-700);
+    --zhiman-accent: color-mix(in srgb, var(--zhiman-surface-300), transparent 60%);
+    --zhiman-accent-foreground: var(--zhiman-surface-900);
+    --zhiman-card: var(--zhiman-surface-50);
+    --zhiman-card-foreground: var(--zhiman-surface-950);
+    --zhiman-popover: var(--zhiman-surface-50);
+    --zhiman-popover-foreground: var(--zhiman-surface-950);
+    --zhiman-muted: var(--zhiman-surface-200);
+    --zhiman-muted-foreground: var(--zhiman-surface-500);
+    --zhiman-destructive: var(--zhiman-red-500);
+    --zhiman-destructive-foreground: var(--zhiman-red-50);
+    --zhiman-success: var(--zhiman-green-500);
+    --zhiman-success-foreground: var(--zhiman-green-50);
+    --zhiman-warning: var(--zhiman-yellow-500);
+    --zhiman-warning-foreground: var(--zhiman-yellow-50);
+    --zhiman-info: var(--zhiman-blue-500);
+    --zhiman-info-foreground: var(--zhiman-blue-50);
 
     /* 边框和输入 */
-    --zhiman-border: 214.3 31.8% 91.4%;
-    --zhiman-input: 214.3 31.8% 91.4%;
-    --zhiman-ring: 162 43% 40%;
+    --zhiman-border: var(--zhiman-surface-200);
+    --zhiman-input: var(--zhiman-surface-400);
+    --zhiman-ring: var(--zhiman-primary-500);
 
     /* 图表颜色 */
-    --zhiman-chart-1: 162 43% 40%;
-    --zhiman-chart-2: 173 58% 39%;
-    --zhiman-chart-3: 197 37% 24%;
-    --zhiman-chart-4: 43 74% 66%;
-    --zhiman-chart-5: 27 87% 67%;
+    --zhiman-chart-1: var(--zhiman-primary-500);
+    --zhiman-chart-2: var(--zhiman-primary-500);
+    --zhiman-chart-3: var(--zhiman-primary-500);
+    --zhiman-chart-4: var(--zhiman-primary-500);
+    --zhiman-chart-5: var(--zhiman-primary-500);
 
     /* 边框半径 */
-    --zhiman-radius: 0.5rem;
-    --zhiman-radius-sm: 0.125rem;
-    --zhiman-radius-md: 0.375rem;
-    --zhiman-radius-lg: 0.5rem;
-    --zhiman-radius-xl: 0.875rem;
+    --zhiman-radius: 0.625rem;
+    --zhiman-radius-sm: calc(var(--zhiman-radius) - 4px);
+    --zhiman-radius-md: calc(var(--zhiman-radius) - 2px);
+    --zhiman-radius-lg: var(--zhiman-radius);
+    --zhiman-radius-xl: calc(var(--zhiman-radius) + 4px);
 
     /* 侧边栏颜色 */
     --zhiman-sidebar: var(--zhiman-surface-100);
     --zhiman-sidebar-foreground: var(--zhiman-surface-950);
-    --zhiman-sidebar-primary: var(--zhiman-primary);
-    --zhiman-sidebar-primary-foreground: var(--zhiman-primary-foreground);
+    --zhiman-sidebar-primary: var(--zhiman-primary-500);
+    --zhiman-sidebar-primary-foreground: var(--zhiman-surface-50);
     --zhiman-sidebar-accent: var(--zhiman-accent);
-    --zhiman-sidebar-accent-foreground: var(--zhiman-accent-foreground);
+    --zhiman-sidebar-accent-foreground: var(--zhiman-surface-950);
     --zhiman-sidebar-border: var(--zhiman-surface-200);
-    --zhiman-sidebar-ring: var(--zhiman-primary);
+    --zhiman-sidebar-ring: var(--zhiman-primary-500);
   }
 
   /* 暗色模式 */
-  [data-prefers-color="dark"] {
-    --zhiman-background: 222.2 84% 4.9%;
-    --zhiman-foreground: 210 40% 98%;
-    --zhiman-card: 222.2 84% 4.9%;
-    --zhiman-card-foreground: 210 40% 98%;
-    --zhiman-popover: 222.2 84% 4.9%;
-    --zhiman-popover-foreground: 210 40% 98%;
-    --zhiman-primary: 162 43% 50%;
-    --zhiman-primary-foreground: 222.2 84% 4.9%;
-    --zhiman-secondary: 217.2 32.6% 17.5%;
-    --zhiman-secondary-foreground: 210 40% 98%;
-    --zhiman-muted: 217.2 32.6% 17.5%;
-    --zhiman-muted-foreground: 215 20.2% 65.1%;
-    --zhiman-accent: 217.2 32.6% 17.5%;
-    --zhiman-accent-foreground: 210 40% 98%;
-    --zhiman-destructive: 0 62.8% 30.6%;
-    --zhiman-destructive-foreground: 210 40% 98%;
-    --zhiman-success: 142 76% 36%;
-    --zhiman-success-foreground: 355.7 100% 97.3%;
-    --zhiman-warning: 32 95% 44%;
-    --zhiman-warning-foreground: 210 40% 98%;
-    --zhiman-info: 217.2 91.2% 59.8%;
-    --zhiman-info-foreground: 222.2 84% 4.9%;
-    --zhiman-border: 217.2 32.6% 17.5%;
-    --zhiman-input: 217.2 32.6% 17.5%;
-    --zhiman-ring: 162 43% 50%;
-    --zhiman-chart-1: 162 43% 50%;
-    --zhiman-chart-2: 160 60% 45%;
-    --zhiman-chart-3: 30 80% 55%;
-    --zhiman-chart-4: 280 65% 60%;
-    --zhiman-chart-5: 340 75% 55%;
+  [data-prefers-color="dark"],
+  .dark {
+    --zhiman-background: var(--zhiman-surface-950);
+    --zhiman-foreground: var(--zhiman-surface-50);
+    --zhiman-card: var(--zhiman-surface-900);
+    --zhiman-card-foreground: var(--zhiman-surface-50);
+    --zhiman-popover: var(--zhiman-surface-900);
+    --zhiman-popover-foreground: var(--zhiman-surface-50);
+    --zhiman-primary: var(--zhiman-primary-500);
+    --zhiman-primary-foreground: var(--zhiman-surface-50);
+    --zhiman-secondary: var(--zhiman-surface-700);
+    --zhiman-secondary-foreground: var(--zhiman-surface-300);
+    --zhiman-accent: color-mix(in srgb, var(--zhiman-surface-700), transparent 60%);
+    --zhiman-accent-foreground: var(--zhiman-surface-50);
+    --zhiman-muted: var(--zhiman-surface-800);
+    --zhiman-muted-foreground: var(--zhiman-surface-400);
+    --zhiman-destructive: var(--zhiman-red-600);
+    --zhiman-destructive-foreground: var(--zhiman-red-50);
+    --zhiman-success: var(--zhiman-green-600);
+    --zhiman-success-foreground: var(--zhiman-green-50);
+    --zhiman-warning: var(--zhiman-yellow-600);
+    --zhiman-warning-foreground: var(--zhiman-yellow-50);
+    --zhiman-info: var(--zhiman-blue-600);
+    --zhiman-info-foreground: var(--zhiman-blue-50);
+    --zhiman-border: var(--zhiman-surface-800);
+    --zhiman-input: var(--zhiman-surface-700);
+    --zhiman-ring: var(--zhiman-primary-500);
+    --zhiman-chart-1: var(--zhiman-primary-500);
+    --zhiman-chart-2: var(--zhiman-primary-500);
+    --zhiman-chart-3: var(--zhiman-primary-500);
+    --zhiman-chart-4: var(--zhiman-primary-500);
+    --zhiman-chart-5: var(--zhiman-primary-500);
     --zhiman-sidebar: var(--zhiman-surface-900);
     --zhiman-sidebar-foreground: var(--zhiman-surface-50);
-    --zhiman-sidebar-primary: var(--zhiman-primary);
-    --zhiman-sidebar-primary-foreground: var(--zhiman-primary-foreground);
+    --zhiman-sidebar-primary: var(--zhiman-primary-500);
+    --zhiman-sidebar-primary-foreground: var(--zhiman-surface-50);
     --zhiman-sidebar-accent: var(--zhiman-accent);
-    --zhiman-sidebar-accent-foreground: var(--zhiman-accent-foreground);
+    --zhiman-sidebar-accent-foreground: var(--zhiman-surface-50);
     --zhiman-sidebar-border: var(--zhiman-surface-800);
-    --zhiman-sidebar-ring: var(--zhiman-primary);
+    --zhiman-sidebar-ring: var(--zhiman-primary-500);
   }
 }
 
@@ -280,6 +383,52 @@
 
     100% {
       background-position: 200% 0;
+    }
+  }
+
+  /* 其他动画 */
+  .animate-thinking {
+    animation: thinking var(--duration) infinite linear;
+  }
+
+  @keyframes thinking {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: -200% 200%;
+    }
+  }
+
+  .animate-shine {
+    animation: shine var(--duration) infinite linear;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
+  }
+
+  .animate-indeterminate {
+    animation: indeterminate 2s linear infinite;
+  }
+
+  @keyframes indeterminate {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
     }
   }
 }

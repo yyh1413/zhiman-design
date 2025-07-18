@@ -9,7 +9,7 @@ import React from 'react';
 import { Button } from 'zhiman-design';
 
 export default () => (
-  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+  <div className="flex flex-wrap gap-4">
     <Button variant="default">Default</Button>
     <Button variant="secondary">Secondary</Button>
     <Button variant="destructive">Destructive</Button>
@@ -24,26 +24,34 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Button } from 'zhiman-design';
+import { Button, Icons } from 'zhiman-design';
 
 export default () => (
-  <div
-    style={{
-      display: 'flex',
-      gap: '8px',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-    }}
-  >
-    <Button variant="default">默认</Button>
-    <Button variant="destructive">危险</Button>
-    <Button variant="outline">边框</Button>
-    <Button variant="secondary">次要</Button>
-    <Button variant="ghost">幽灵</Button>
-    <Button variant="link">链接</Button>
-    <Button variant="brandActive">品牌激活</Button>
-    <Button variant="gradientPrimary">渐变主色</Button>
-    <Button variant="glass">玻璃效果</Button>
+  <div className="flex flex-wrap gap-4">
+    <Button>Default</Button>
+    <Button disabled>Disabled</Button>
+    <Button variant="outline" className="border-dashed">
+      Dashed
+    </Button>
+    <Button disabled>
+      <Icons.spinner className="animate-spin" />
+      Loading...
+    </Button>
+  </div>
+);
+```
+
+## 所有按钮变体
+
+```tsx
+import React from 'react';
+import { Button, Icons } from 'zhiman-design';
+
+export default () => (
+  <div className="flex flex-wrap gap-4">
+    <Button variant="gradientPrimary">Gradient Button</Button>
+    <Button variant="glass">Glass Button</Button>
+    <Button variant="brandActive">Brand Active</Button>
   </div>
 );
 ```
@@ -52,21 +60,27 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Button } from 'zhiman-design';
+import {
+  Button,
+  Icons,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from 'zhiman-design';
 
 export default () => (
-  <div
-    style={{
-      display: 'flex',
-      gap: '8px',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-    }}
-  >
-    <Button size="sm">小尺寸</Button>
-    <Button size="default">默认尺寸</Button>
-    <Button size="lg">大尺寸</Button>
-    <Button size="icon">🏠</Button>
+  <div className="flex flex-wrap items-center gap-4">
+    <Button size="sm">Small</Button>
+    <Button size="default">Default</Button>
+    <Button size="lg">Large</Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon">
+          <Icons.plus />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Add new item</TooltipContent>
+    </Tooltip>
   </div>
 );
 ```
@@ -75,57 +89,51 @@ export default () => (
 
 ```tsx
 import React from 'react';
-import { Button } from 'zhiman-design';
-
-const PlusIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M12 5v14M5 12h14" />
-  </svg>
-);
-
-const TrashIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-  </svg>
-);
+import {
+  Button,
+  Icons,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from 'zhiman-design';
 
 export default () => (
-  <div
-    style={{
-      display: 'flex',
-      gap: '8px',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-    }}
-  >
-    <Button>
-      <PlusIcon />
-      添加
-    </Button>
-    <Button variant="destructive">
-      <TrashIcon />
-      删除
-    </Button>
-    <Button variant="outline" size="icon">
-      <PlusIcon />
-    </Button>
-    <Button variant="ghost" size="icon">
-      <TrashIcon />
-    </Button>
+  <div className="flex flex-wrap gap-4">
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="ghost">
+          <Icons.settings />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Settings</TooltipContent>
+    </Tooltip>
+
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="outline">
+          <Icons.edit />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Edit</TooltipContent>
+    </Tooltip>
+
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="destructive">
+          <Icons.trash />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Delete</TooltipContent>
+    </Tooltip>
+
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="glass">
+          <Icons.bookmark />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Add to favorites</TooltipContent>
+    </Tooltip>
   </div>
 );
 ```
@@ -137,14 +145,7 @@ import React from 'react';
 import { Button } from 'zhiman-design';
 
 export default () => (
-  <div
-    style={{
-      display: 'flex',
-      gap: '16px',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-    }}
-  >
+  <div className="flex flex-wrap gap-4 items-center">
     <Button withMotion>默认动画</Button>
     <Button
       withMotion
@@ -172,70 +173,6 @@ export default () => (
 );
 ```
 
-## 禁用状态
-
-```tsx
-import React from 'react';
-import { Button } from 'zhiman-design';
-
-export default () => (
-  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-    <Button disabled>禁用默认</Button>
-    <Button variant="destructive" disabled>
-      禁用危险
-    </Button>
-    <Button variant="outline" disabled>
-      禁用边框
-    </Button>
-    <Button variant="gradientPrimary" disabled>
-      禁用渐变
-    </Button>
-  </div>
-);
-```
-
-## 加载状态
-
-```tsx
-import React, { useState } from 'react';
-import { Button } from 'zhiman-design';
-
-const LoadingIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    className="animate-spin"
-  >
-    <path d="M21 12a9 9 0 11-6.219-8.56" />
-  </svg>
-);
-
-export default () => {
-  const [loading, setLoading] = useState(false);
-
-  const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-  };
-
-  return (
-    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-      <Button disabled={loading} onClick={handleClick}>
-        {loading && <LoadingIcon />}
-        {loading ? '加载中...' : '点击加载'}
-      </Button>
-      <Button variant="outline" disabled={loading}>
-        {loading && <LoadingIcon />}
-        提交表单
-      </Button>
-    </div>
-  );
-};
-```
 
 ## asChild 组合使用
 
@@ -244,7 +181,7 @@ import React from 'react';
 import { Button } from 'zhiman-design';
 
 export default () => (
-  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+  <div className="flex flex-wrap gap-4">
     <Button asChild>
       <a href="https://example.com" target="_blank" rel="noopener noreferrer">
         外部链接
@@ -259,167 +196,23 @@ export default () => (
 );
 ```
 
-## 按钮组
-
-```tsx
-import React, { useState } from 'react';
-import { Button } from 'zhiman-design';
-
-export default () => {
-  const [selected, setSelected] = useState('left');
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {/* 工具栏按钮组 */}
-      <div
-        style={{
-          display: 'flex',
-          gap: '0',
-          border: '1px solid #e2e8f0',
-          borderRadius: '6px',
-          overflow: 'hidden',
-        }}
-      >
-        <Button
-          variant={selected === 'left' ? 'brandActive' : 'ghost'}
-          style={{ borderRadius: '0' }}
-          onClick={() => setSelected('left')}
-        >
-          左对齐
-        </Button>
-        <Button
-          variant={selected === 'center' ? 'brandActive' : 'ghost'}
-          style={{ borderRadius: '0' }}
-          onClick={() => setSelected('center')}
-        >
-          居中
-        </Button>
-        <Button
-          variant={selected === 'right' ? 'brandActive' : 'ghost'}
-          style={{ borderRadius: '0' }}
-          onClick={() => setSelected('right')}
-        >
-          右对齐
-        </Button>
-      </div>
-
-      {/* 操作按钮组 */}
-      <div style={{ display: 'flex', gap: '8px' }}>
-        <Button variant="outline">取消</Button>
-        <Button variant="gradientPrimary">保存</Button>
-      </div>
-    </div>
-  );
-};
-```
-
-## 明暗模式支持
-
-所有按钮变体完美支持明暗模式切换：
-
-```tsx
-import React from 'react';
-import { Button, DarkModeToggle } from 'zhiman-design';
-
-export default () => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '16px',
-      padding: '20px',
-    }}
-  >
-    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-      <span>明暗模式切换:</span>
-      <DarkModeToggle />
-    </div>
-
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-        gap: '12px',
-      }}
-    >
-      <Button variant="default">默认按钮</Button>
-      <Button variant="destructive">危险按钮</Button>
-      <Button variant="outline">边框按钮</Button>
-      <Button variant="secondary">次要按钮</Button>
-      <Button variant="ghost">幽灵按钮</Button>
-      <Button variant="gradientPrimary">渐变按钮</Button>
-      <Button variant="glass">玻璃按钮</Button>
-      <Button variant="brandActive">品牌按钮</Button>
-      <Button variant="link">链接按钮</Button>
-    </div>
-  </div>
-);
-```
-
 ## 实际应用场景
 
 ```tsx
 import React, { useState } from 'react';
-import { Button } from 'zhiman-design';
-
-const DownloadIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-    <polyline points="7,10 12,15 17,10" />
-    <line x1="12" y1="15" x2="12" y2="3" />
-  </svg>
-);
-
-const ShareIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <circle cx="18" cy="5" r="3" />
-    <circle cx="6" cy="12" r="3" />
-    <circle cx="18" cy="19" r="3" />
-    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-  </svg>
-);
+import { Button, Icons } from 'zhiman-design';
 
 export default () => {
   const [downloaded, setDownloaded] = useState(false);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px',
-        padding: '20px',
-        backgroundColor: '#f8fafc',
-        borderRadius: '8px',
-      }}
-    >
+    <div className="space-y-6 p-6 bg-muted/30 rounded-lg">
       {/* 卡片操作 */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <h3 style={{ margin: 0 }}>设计系统文档</h3>
-        <div style={{ display: 'flex', gap: '8px' }}>
+      <div className="flex justify-between items-center">
+        <h3 className="m-0">设计系统文档</h3>
+        <div className="flex gap-2">
           <Button variant="ghost" size="icon">
-            <ShareIcon />
+            <Icons.share />
           </Button>
           <Button
             variant="outline"
@@ -427,22 +220,14 @@ export default () => {
             disabled={downloaded}
             onClick={() => setDownloaded(true)}
           >
-            <DownloadIcon />
+            <Icons.download />
             {downloaded ? '已下载' : '下载'}
           </Button>
         </div>
       </div>
 
       {/* 表单提交 */}
-      <div
-        style={{
-          display: 'flex',
-          gap: '12px',
-          justifyContent: 'flex-end',
-          paddingTop: '16px',
-          borderTop: '1px solid #e2e8f0',
-        }}
-      >
+      <div className="flex gap-3 justify-end pt-4 border-t border-border">
         <Button variant="ghost">取消</Button>
         <Button variant="outline">保存草稿</Button>
         <Button
@@ -455,14 +240,7 @@ export default () => {
       </div>
 
       {/* 危险操作 */}
-      <div
-        style={{
-          display: 'flex',
-          gap: '8px',
-          paddingTop: '16px',
-          borderTop: '1px solid #fee2e2',
-        }}
-      >
+      <div className="flex gap-2 pt-4 border-t border-destructive/20">
         <Button variant="destructive" size="sm">
           删除项目
         </Button>
@@ -475,45 +253,6 @@ export default () => {
 };
 ```
 
-## 特殊效果展示
-
-```tsx
-import React from 'react';
-import { Button } from 'zhiman-design';
-
-export default () => (
-  <div
-    style={{
-      display: 'flex',
-      gap: '16px',
-      flexWrap: 'wrap',
-      padding: '24px',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      borderRadius: '12px',
-    }}
-  >
-    <Button variant="glass" withMotion motionProps={{ hoverScale: 1.05 }}>
-      玻璃态按钮
-    </Button>
-
-    <Button variant="gradientPrimary" withMotion size="lg">
-      渐变大按钮
-    </Button>
-
-    <Button
-      variant="glass"
-      size="icon"
-      withMotion
-      motionProps={{
-        hoverScale: 1.1,
-        hoverRotate: 5,
-      }}
-    >
-      ✨
-    </Button>
-  </div>
-);
-```
 
 ## API 参数
 
