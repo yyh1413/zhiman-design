@@ -25,45 +25,6 @@ import 'zhiman-design/dist/styles.css';
 import 'zhiman-design/tailwind.css';
 ```
 
-### 2. 使用组件
-
-```tsx
-import React from 'react';
-import { Button, ThemeSwitcher } from 'zhiman-design';
-
-function App() {
-  return (
-    <div>
-      <ThemeSwitcher />
-      <Button variant="default">Hello Zhiman Design!</Button>
-      <Button variant="destructive">危险按钮</Button>
-      <Button variant="outline">边框按钮</Button>
-    </div>
-  );
-}
-
-export default App;
-```
-
-### 3. 配置 Tailwind CSS（推荐）
-
-如果你在消费项目中使用 Tailwind CSS，建议将组件库的配置合并到你的 `tailwind.config.js` 中：
-
-```js
-// tailwind.config.js
-module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/zhiman-design/dist/**/*.{js,ts,jsx,tsx}"
-  ],
-  theme: {
-    extend: {
-      // 可以覆盖组件库的主题配置
-    }
-  },
-  plugins: []
-};
-```
 
 ## 样式问题排查
 
