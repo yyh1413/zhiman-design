@@ -10,6 +10,7 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
+      "@/*": ["./src/*"],
       "@@/*": [".dumi/tmp/*"],
       "zhiman-design": ["src"],
       "zhiman-design/*": ["src/*", "*"]
