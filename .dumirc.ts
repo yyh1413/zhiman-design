@@ -24,7 +24,11 @@ export default defineConfig({
       bottom: 'Copyright © 2025 zhiman-design. All rights reserved.',
     },
     socialLinks: {
-      github: 'https://github.com/zhiman-design/zhiman-design',
+      // github: 'https://github.com/zhiman-design/zhiman-design',
     },
   },
+  theme: {
+    '@c-primary': '#3b9278',
+  },
+
 });

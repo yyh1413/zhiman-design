@@ -6,8 +6,7 @@ zhiman-design 为您提供了丰富的组件库，涵盖了常见的业务场景
 
 ### 基础组件
 
-- [Foo](/components/foo) - 示例组件，展示基本用法
-- [Input](/components/input) - 输入框组件，支持多种输入类型
+- [Button](/components/button) - 示例组件，展示基本用法
 
 ## 组件分类
 
@@ -39,12 +38,11 @@ zhiman-design 为您提供了丰富的组件库，涵盖了常见的业务场景
 
 ```jsx
 import React from 'react';
-import { Foo, Input } from 'zhiman-design';
+import { Button } from 'zhiman-design';
 
 const App = () => (
   <div>
-    <Foo title="Hello World!" />
-    <Input placeholder="请输入内容" />
+    <Button>Hello Word</Button>
   </div>
 );
 
