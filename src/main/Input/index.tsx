@@ -1,5 +1,5 @@
 import React, { useRef, useState, forwardRef, useImperativeHandle } from "react";
-import { Input as InnerInput } from "../components/ui/input";
+import { Input as InnerInput } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 export interface InputProps extends Omit<React.ComponentProps<typeof InnerInput>, 'size' | 'prefix'> {
