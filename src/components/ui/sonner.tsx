@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { Toaster as Sonner, ToasterProps } from "sonner";
 
 import { useTheme } from "next-themes";

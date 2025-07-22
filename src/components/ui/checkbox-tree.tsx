@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { useCallback, useEffect, useState } from "react";
 
 interface TreeNode {
@@ -49,6 +50,21 @@ export function CheckboxTree({
     return ids;
   }, []);
 
+  // Helper function to find a node by ID
+  const findNodeById = useCallback(
+    (node: TreeNode, id: string): TreeNode | undefined => {
+      if (node.id === id) return node;
+      if (node.children) {
+        for (const child of node.children) {
+          const found = findNodeById(child, id);
+          if (found) return found;
+        }
+      }
+      return undefined;
+    },
+    [],
+  );
+
   // Get parent IDs for a node
   const getParentIds = useCallback(
     (nodeId: string, currentNode: TreeNode = tree): string[] => {
@@ -95,29 +111,14 @@ export function CheckboxTree({
       setCheckedNodes(newCheckedNodes);
       onSelectionChange?.(Array.from(newCheckedNodes));
     },
-    [checkedNodes, getChildIds, getParentIds, onSelectionChange, tree],
-  );
-
-  // Helper function to find a node by ID
-  const findNodeById = useCallback(
-    (node: TreeNode, id: string): TreeNode | undefined => {
-      if (node.id === id) return node;
-      if (node.children) {
-        for (const child of node.children) {
-          const found = findNodeById(child, id);
-          if (found) return found;
-        }
-      }
-      return undefined;
-    },
-    [],
+    [checkedNodes, getChildIds, getParentIds, onSelectionChange, tree, findNodeById],
   );
 
   // Render tree recursively
   const renderTree = useCallback(
-    (node: TreeNode) => {
+    (node: TreeNode): React.ReactNode => {
       const isChecked = checkedNodes.has(node.id);
-      const children = node.children?.map((child) => renderTree(child));
+      const children: React.ReactNode[] | undefined = node.children?.map((child) => renderTree(child));
 
       return renderNode({
         node,

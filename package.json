@@ -1,15 +1,16 @@
 {
   "name": "zhiman-design",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "zhiman-design",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
-    "build": "father build && npm run build:styles",
+    "build": "father build && npm run build:styles && npm run clean-exports",
     "build:styles": "postcss ./src/index.css -o ./dist/index.css",
     "wrap-css": "node scripts/wrap-css.js",
+    "clean-exports": "node scripts/clean-exports.js",
     "build:watch": "father dev",
     "docs:build": "dumi build",
     "docs:preview": "dumi preview",

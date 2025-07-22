@@ -8,5 +8,13 @@ export default defineConfig({
     extraBabelPlugins: [
       ['import', { libraryName: 'antd', style: true }]
     ]
+  },
+  // 添加 cjs 构建以支持 CommonJS
+  cjs: {
+    output: 'dist',
+  },
+  // 确保所有组件都被构建
+  umd: {
+    output: 'dist',
   }
 });

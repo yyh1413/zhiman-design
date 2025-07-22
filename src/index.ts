@@ -1,5 +1,6 @@
 import './index.css';
-// 组件导出
+
+// 自定义组件导出
 export { Button, buttonVariants } from './Button';
 export { Input } from './Input';
 export { Icons } from './Icons';
