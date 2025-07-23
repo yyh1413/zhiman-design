@@ -12,6 +12,9 @@ if (fs.existsSync(indexPath)) {
   // 删除 ...require("./components/ui") 部分
   content = content.replace(/,\s*\.\.\.require\("\.\/components\/ui"\)/g, '');
   
+  // 删除 CSS 导入行
+  content = content.replace(/var import_index = require\("\.\/index\.css"\);\n/g, '');
+  
   fs.writeFileSync(indexPath, content);
   console.log('✅ 已清理 dist/index.js 中的 UI 组件导出');
 } else {
@@ -26,8 +29,11 @@ if (fs.existsSync(indexDtsPath)) {
   // 删除 export * from './components/ui'; 行
   content = content.replace(/export \* from '\.\/components\/ui';\n/g, '');
   
+  // 删除 CSS 导入行
+  content = content.replace(/import '\.\/index\.css';\n/g, '');
+  
   fs.writeFileSync(indexDtsPath, content);
-  console.log('✅ 已清理 dist/index.d.ts 中的 UI 组件导出');
+  console.log('✅ 已清理 dist/index.d.ts 中的 UI 组件导出和 CSS 导入');
 } else {
   console.log('❌ dist/index.d.ts 文件不存在');
 }

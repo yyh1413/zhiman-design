@@ -1,6 +1,7 @@
-import React, { useRef, useState, forwardRef, useImperativeHandle } from "react";
+import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { Input as InnerInput } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { Search } from "./Search";
 
 export interface InputProps extends Omit<React.ComponentProps<typeof InnerInput>, 'size' | 'prefix'> {
   size?: "large" | "default" | "small";
@@ -14,28 +15,15 @@ const sizeClassMap = {
   large: "h-10",
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({
+export const BaseInput = forwardRef<HTMLInputElement, InputProps>(({
   size = "default",
   prefix,
   className = "",
   ...rest
 }, ref) => {
-  const [focused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-
   // 将外部 ref 指向内部的 input 元素
   useImperativeHandle(ref, () => inputRef.current!, []);
-
-  // 处理 onFocus 和 onBlur 事件
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    setFocused(true);
-    rest.onFocus?.(e);
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    setFocused(false);
-    rest.onBlur?.(e);
-  };
 
   if (!prefix) {
     return (
@@ -47,25 +35,45 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
     );
   }
 
+  const renderPrefix = () => {
+    return <span className={cn("text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50",
+      "text-muted-foreground/80")}>
+      {prefix}
+    </span>
+  }
+  const psLeftClass = prefix ? "ps-9" : "";
   return (
-    <div
-      className={cn(
-        "flex items-center border rounded-md px-3 transition-colors",
-        focused ? "shadow-ring/50 shadow-[0_0_0_3px] border-ring/50" : "border-gray-300",
-        className,
-      )}
-      onClick={() => inputRef.current?.focus()}
-    >
-      {prefix && <span className="mr-2 ">{prefix}</span>}
+    <span className="relative">
+      {renderPrefix()}
       <InnerInput
         ref={inputRef}
-        className={cn("flex-1 border-none outline-none bg-transparent p-0 focus-visible:ring-0", sizeClassMap[size])}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         {...rest}
+        className={cn(sizeClassMap[size], className, psLeftClass)}
       />
-    </div>
-  );
+    </span>
+  )
+  // return (
+  //   <div
+  //     className={cn(
+  //       "flex items-center border rounded-md px-3 transition-colors",
+  //       focused ? "shadow-ring/50 shadow-[0_0_0_3px] border-ring/50" : "border-gray-300",
+  //       className,
+  //     )}
+  //     onClick={() => inputRef.current?.focus()}
+  //   >
+  //     {prefix && <span className="mr-2 ">{prefix}</span>}
+  //     <InnerInput
+  //       ref={inputRef}
+  //       className={cn("flex-1 border-none outline-none bg-transparent p-0 focus-visible:ring-0", sizeClassMap[size])}
+  //       onFocus={handleFocus}
+  //       onBlur={handleBlur}
+  //       {...rest}
+  //     />
+  //   </div>
+  // );
 });
 
+BaseInput.displayName = "BaseInput";
+
+export const Input = Object.assign(BaseInput, { Search });
 Input.displayName = "Input";
